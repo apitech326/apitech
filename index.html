@@ -2,13 +2,64 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mi Página Web</title>
+  <title>Menú Principal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .menu-container {
+      text-align: center;
+    }
+
+    .menu-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .menu-box {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .menu-button {
+      background-color: #ffffff;
+      border: 2px solid #007bff;
+      border-radius: 12px;
+      padding: 40px 60px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #007bff;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-button:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-  <h1>¡Hola desde GitHub Pages!</h1>
-  <p>Esta es una página de prueba.</p>
-  <a href="consetimeientoxdxdxd.html">Ir al nuevo formulario</a>
+
+  <div class="menu-container">
+    <div class="menu-title">Menú de Formularios</div>
+    <div class="menu-box">
+      <a href="consentimiento.html" class="menu-button">Consentimientos</a>
+      <a href="habeasdata.html" class="menu-button">Habeas Data</a>
+    </div>
+  </div>
 
 </body>
 </html>
-
