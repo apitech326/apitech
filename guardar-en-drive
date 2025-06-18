@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Guardar archivo en Google Drive</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      text-align: center;
+    }
+
+    textarea {
+      width: 80%;
+      height: 150px;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Guardar texto en tu Google Drive</h2>
+  <p>Escribe algo abajo y se guardará como archivo de texto en tu carpeta Drive.</p>
+
+  <textarea id="contenido">Texto de prueba para guardar en Google Drive desde HTML.</textarea><br>
+  <button onclick="guardarEnDrive()">📤 Guardar en Drive</button>
+
+  <script>
+    async function guardarEnDrive() {
+      const texto = document.getElementById("contenido").value;
+      const base64 = btoa(unescape(encodeURIComponent(texto)));
+
+      const datos = {
+        filename: "archivo_prueba.txt",
+        mimeType: "text/plain",
+        content: base64
+      };
+
+      try {
+        const respuesta = await fetch("https://script.google.com/macros/s/AKfycbyVvnI_lki8W6BUDmIshjR4EI0pFsDcz0yPD5hhWHuMe0CTXcnCYwECQtHQYhlUZMo-/exec", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(datos)
+        });
+
+        const resultado = await respuesta.text();
+        alert("✅ Respuesta del servidor:\n" + resultado);
+      } catch (error) {
+        alert("❌ Error al guardar en Drive:\n" + error.message);
+      }
+    }
+  </script>
+
+</body>
+</html>
